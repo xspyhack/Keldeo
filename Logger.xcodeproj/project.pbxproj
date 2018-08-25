@@ -16,7 +16,7 @@
 		78BA67C0212980020070ED4D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67BC212980020070ED4D /* Message.swift */; };
 		78BA67C1212980020070ED4D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67BD212980020070ED4D /* Logger.swift */; };
 		78BA67C2212980020070ED4D /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67BE212980020070ED4D /* Formatter.swift */; };
-		78BA67C4212B02620070ED4D /* TTYLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67C3212B02620070ED4D /* TTYLogger.swift */; };
+		78BA67C4212B02620070ED4D /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67C3212B02620070ED4D /* ConsoleLogger.swift */; };
 		78BA67C6212C49AB0070ED4D /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67C5212C49AB0070ED4D /* FileLogger.swift */; };
 		78BA67CE213129140070ED4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67CD213129140070ED4D /* AppDelegate.swift */; };
 		78BA67D0213129140070ED4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67CF213129140070ED4D /* ViewController.swift */; };
@@ -79,7 +79,7 @@
 		78BA67BC212980020070ED4D /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		78BA67BD212980020070ED4D /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		78BA67BE212980020070ED4D /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		78BA67C3212B02620070ED4D /* TTYLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTYLogger.swift; sourceTree = "<group>"; };
+		78BA67C3212B02620070ED4D /* ConsoleLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
 		78BA67C5212C49AB0070ED4D /* FileLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
 		78BA67CB213129140070ED4D /* Alligator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alligator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BA67CD213129140070ED4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				78BA67BE212980020070ED4D /* Formatter.swift */,
-				78BA67C3212B02620070ED4D /* TTYLogger.swift */,
+				78BA67C3212B02620070ED4D /* ConsoleLogger.swift */,
 				78BA67C5212C49AB0070ED4D /* FileLogger.swift */,
 				788329F8213173E300410419 /* WebLogger.swift */,
 				78BA67BD212980020070ED4D /* Logger.swift */,
@@ -374,7 +374,7 @@
 				78BA67C1212980020070ED4D /* Logger.swift in Sources */,
 				78BA67C2212980020070ED4D /* Formatter.swift in Sources */,
 				78BA67C6212C49AB0070ED4D /* FileLogger.swift in Sources */,
-				78BA67C4212B02620070ED4D /* TTYLogger.swift in Sources */,
+				78BA67C4212B02620070ED4D /* ConsoleLogger.swift in Sources */,
 				78BA67C0212980020070ED4D /* Message.swift in Sources */,
 				788329F9213173E300410419 /* WebLogger.swift in Sources */,
 			);

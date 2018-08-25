@@ -9,7 +9,7 @@
 import Foundation
 
 /// A logger for Xcode console output.
-public struct TTYLogger: Logging {
+public struct ConsoleLogger: Logging {
 
     public var formatter: LogFormatter
 
@@ -22,7 +22,7 @@ public struct TTYLogger: Logging {
     }
 
     public var name: String {
-        return "com.xspyhack.TTYLogger"
+        return "com.xspyhack.ConsoleLogger"
     }
 
     public init(level: Level = .info, formatter: LogFormatter) {
@@ -31,8 +31,8 @@ public struct TTYLogger: Logging {
     }
 }
 
-extension TTYLogger: Hashable {
-    public static func == (lhs: TTYLogger, rhs: TTYLogger) -> Bool {
+extension ConsoleLogger: Hashable {
+    public static func == (lhs: ConsoleLogger, rhs: ConsoleLogger) -> Bool {
         return lhs.level == rhs.level && lhs.name == rhs.name
     }
 
