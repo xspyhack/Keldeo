@@ -42,7 +42,7 @@ struct AlligatorFormatter: LogFormatter {
         let file = (message.file as NSString).lastPathComponent
         string += "[\(file):\(message.line)] \(message.function) "
 
-        string += "| \(message.message)\n"
+        string += "| \(message.message)"
 
         return string
     }
