@@ -2,21 +2,11 @@ import Foundation
 
 public enum Level: Int {
     case off = 0
-    case error = 1
-    case warning = 11
-    case info = 111
-    case debug = 1111
-    case all = 1111111
+    case error = 1 // Flag.error | Level.off
+    case warning = 3 // Flag.warning | Level.error
+    case info = 7 // Flag.info | Level.warning
+    case debug = 15 // Flag.debug | Level.info
 }
-
-//public struct Level {
-//    public static let off: [Flag] = []
-//    public static let error: [Flag] = Level.off + [.error]
-//    public static let warning: [Flag] = Level.error + [.warning]
-//    public static let info: [Flag] = Level.warning + [.info]
-//    public static let debug: [Flag] = Level.info + [.debug]
-//    public static let all: [Flag] = Level.debug
-//}
 
 public struct Flag: OptionSet {
 
@@ -36,7 +26,7 @@ public struct Flag: OptionSet {
 public protocol Logging: Hashable {
 
     /// Log formatter for format log message before output
-    var formatter: Formatter { get }
+    var formatter: LogFormatter { get }
 
     /// Logger name
     var name: String { get }
@@ -82,7 +72,7 @@ protocol AnyLoggerBox {
 
     func unbox<T: Logging>() -> T?
 
-    var formatter: Formatter { get }
+    var formatter: LogFormatter { get }
 
     var level: Level { get }
 
@@ -108,7 +98,7 @@ struct ConcreteLoggerBox<Base: Logging>: AnyLoggerBox {
         self.base = base
     }
 
-    var formatter: Formatter {
+    var formatter: LogFormatter {
         return base.formatter
     }
 
@@ -152,14 +142,14 @@ public struct AnyLogger {
 
     private var box: AnyLoggerBox
 
-    init<T: Logging>(_ box: T) {
+    public init<T: Logging>(_ box: T) {
         self.box = ConcreteLoggerBox(box)
     }
 }
 
 extension AnyLogger: Logging {
 
-    public var formatter: Formatter {
+    public var formatter: LogFormatter {
         return box.formatter
     }
 
