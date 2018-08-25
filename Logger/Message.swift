@@ -10,7 +10,7 @@ public struct Message {
 
     public let context: Int
 
-    public let file: StaticString
+    public let file: String
 
     public let function: StaticString
 
@@ -18,7 +18,7 @@ public struct Message {
 
     public let timestamp: Date
 
-    public init(message: String, level: Level, flag: Flag, context: Int, file: StaticString, function: StaticString, line: UInt, timestamp: Date) {
+    public init(message: String, level: Level, flag: Flag, context: Int, file: String, function: StaticString, line: UInt, timestamp: Date) {
         self.message = message
         self.level = level
         self.flag = flag

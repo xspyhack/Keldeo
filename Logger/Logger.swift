@@ -46,7 +46,8 @@ public class Logger {
 
 public extension Logger {
 
-    /// Add logger
+    /// Add logger.
+    /// You must use `AnyLogger(_:)` to wrap your logger`
     ///
     /// - Parameters:
     ///   - logger: the logger
@@ -109,23 +110,23 @@ public extension Logger {
 /// The convenience API for prepare log message
 public struct Log {
 
-    public static func e(_ message: @autoclosure () -> String, level: Level = .error, context: Int = 0, file: StaticString = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = false) {
+    public static func e(_ message: @autoclosure () -> String, level: Level = .error, context: Int = 0, file: String = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = false) {
         log(message, level: level, flag: .error, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
     }
 
-    public static func w(_ message: @autoclosure () -> String, level: Level = .warning, context: Int = 0, file: StaticString = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = true) {
+    public static func w(_ message: @autoclosure () -> String, level: Level = .warning, context: Int = 0, file: String = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = true) {
         log(message, level: level, flag: .warning, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
     }
 
-    public static func i(_ message: @autoclosure () -> String, level: Level = .info, context: Int = 0, file: StaticString = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = true) {
+    public static func i(_ message: @autoclosure () -> String, level: Level = .info, context: Int = 0, file: String = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = true) {
         log(message, level: level, flag: .info, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
     }
 
-    public static func d(_ message: @autoclosure () -> String, level: Level = .debug, context: Int = 0, file: StaticString = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = true) {
+    public static func d(_ message: @autoclosure () -> String, level: Level = .debug, context: Int = 0, file: String = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = true) {
         log(message, level: level, flag: .debug, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
     }
 
-    public static func log(_ message: @autoclosure () -> String, level: Level, flag: Flag, context: Int, file: StaticString, function: StaticString, line: UInt, asynchronous: Bool) {
+    public static func log(_ message: @autoclosure () -> String, level: Level, flag: Flag, context: Int, file: String, function: StaticString, line: UInt, asynchronous: Bool) {
 
         let message = Message(message: message(), level: level, flag: flag, context: context, file: file, function: function, line: line, timestamp: Date())
 
