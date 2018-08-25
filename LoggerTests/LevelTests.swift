@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Logger
 
 class LevelTests: XCTestCase {
 
@@ -21,6 +22,11 @@ class LevelTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+        XCTAssertEqual(Flag.error.rawValue, Level.error.rawValue)
+        XCTAssertEqual(Level.error.rawValue | Flag.warning.rawValue, Level.warning.rawValue)
+        XCTAssertEqual(Level.warning.rawValue | Flag.info.rawValue, Level.info.rawValue)
+        XCTAssertEqual(Level.info.rawValue | Flag.debug.rawValue, Level.debug.rawValue)
     }
 
     func testPerformanceExample() {
