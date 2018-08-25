@@ -12,10 +12,10 @@ public struct Flag: OptionSet {
 
     public let rawValue: Int
 
-    public static let error = Flag(rawValue: 1 << 0)
-    public static let warning = Flag(rawValue: 1 << 1)
-    public static let info = Flag(rawValue: 1 << 2)
-    public static let debug = Flag(rawValue: 1 << 3)
+    public static let error = Flag(rawValue: 1 << 0) // 1
+    public static let warning = Flag(rawValue: 1 << 1) // 2
+    public static let info = Flag(rawValue: 1 << 2) // 4
+    public static let debug = Flag(rawValue: 1 << 3) // 8
 
     public init(rawValue: Int) {
         self.rawValue = rawValue
