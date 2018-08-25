@@ -19,7 +19,10 @@ class ViewController: UIViewController {
 
         Log.i("View did load")
 
+        Log.w("This is a warning message")
+
         Log.e("This is Log.e() message synchronously")
+        
         print("This is print() message")
 
         NSLog("This is NSLog() message")

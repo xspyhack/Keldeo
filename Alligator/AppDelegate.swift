@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let formatter = AlligatorFormatter()
 
-        let ttyLogger = TTYLogger(level: .off, formatter: formatter)
+        let ttyLogger = TTYLogger(level: .debug, formatter: formatter)
         Logger.shared.add(AnyLogger(ttyLogger))
 
         let fileManager = DefaultFileManager()
