@@ -94,19 +94,26 @@ public protocol LogFileManager {
 
 public struct DefaultFileManager: LogFileManager {
 
+    /// Log files directory
     public var directory: String
 
-    public var maxFilePeriodInSecond: Double = 0
+    /// The longest time duration in second of the log files being stored in disk.
+    /// Defaults 1 week.
+    public var maxFilePeriodInSecond: TimeInterval = 60 * 60 * 24 * 7
+
+    /// Max log file size in bytes. Defaults no limit.
+    public var maxFileSize: UInt = 0
 
     private let fileManager = FileManager()
 
     private let queue = DispatchQueue(label: "com.xspyhack.fileManager.queue")
 
+    /// File path for current session
     public func filePath() -> String {
         // return a new file path for file logging
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd-hh-mm-ss"
         return directory + "/\(formatter.string(from: date)).log"
     }
 
@@ -116,6 +123,9 @@ public struct DefaultFileManager: LogFileManager {
         self.init(directory: directory)
     }
 
+    /// Init with log files directory.
+    ///
+    /// - Parameter directory: disk file path for storing logs.
     public init(directory: String) {
         self.directory = directory
 
@@ -130,19 +140,53 @@ public struct DefaultFileManager: LogFileManager {
         deleteInBackground()
     }
 
+    /// Delete expired log files in background.
+    /// Copy from https://github.com/onevcat/Kingfisher/blob/master/Sources/ImageCache.swift
     private func deleteInBackground() {
         queue.async {
-            let (urlsToDelete, files) = self.travelFiles()
+            var (urlsToDelete, diskFileSize, files) = self.travelFiles()
 
             for fileURL in urlsToDelete {
                 do {
                     try self.fileManager.removeItem(at: fileURL)
                 } catch _ { }
             }
+
+            if self.maxFileSize > 0 && diskFileSize > self.maxFileSize {
+                let targetSize = self.maxFileSize / 2
+
+                // Sort files by last modify date. We want to clean from the oldest files.
+                let sortedFiles = files.keysSortedByValue {
+                    resourceValue1, resourceValue2 -> Bool in
+
+                    if let date1 = resourceValue1.contentAccessDate,
+                        let date2 = resourceValue2.contentAccessDate {
+                        return date1.compare(date2) == .orderedAscending
+                    }
+
+                    // Not valid date information. This should not happen. Just in case.
+                    return true
+                }
+
+                for fileURL in sortedFiles {
+
+                    do {
+                        try self.fileManager.removeItem(at: fileURL)
+                    } catch { }
+
+                    if let fileSize = files[fileURL]?.totalFileAllocatedSize {
+                        diskFileSize -= UInt(fileSize)
+                    }
+
+                    if diskFileSize < targetSize {
+                        break
+                    }
+                }
+            }
         }
     }
 
-    private func travelFiles() -> (urlsToDelete: [URL], cachedFiles: [URL: URLResourceValues]) {
+    private func travelFiles() -> (urlsToDelete: [URL], diskFileSize: UInt, files: [URL: URLResourceValues]) {
 
         let directoryURL = URL(fileURLWithPath: directory)
 
@@ -151,7 +195,7 @@ public struct DefaultFileManager: LogFileManager {
 
         var files = [URL: URLResourceValues]()
         var urlsToDelete = [URL]()
-        var diskCacheSize: UInt = 0
+        var diskFileSize: UInt = 0
 
         for url in (try? fileManager.contentsOfDirectory(at: directoryURL, includingPropertiesForKeys: Array(resourceKeys), options: .skipsHiddenFiles)) ?? [] {
 
@@ -171,16 +215,18 @@ public struct DefaultFileManager: LogFileManager {
                 }
 
                 if let fileSize = resourceValues.totalFileAllocatedSize {
-                    diskCacheSize += UInt(fileSize)
+                    diskFileSize += UInt(fileSize)
                     files[url] = resourceValues
                 }
             } catch _ { }
         }
 
-        return (urlsToDelete, files)
+        return (urlsToDelete, diskFileSize, files)
     }
+}
 
-    private func sortedFiles() {
-
+extension Dictionary {
+    func keysSortedByValue(_ isOrderedBefore: (Value, Value) -> Bool) -> [Key] {
+        return Array(self).sorted{ isOrderedBefore($0.1, $1.1) }.map{ $0.0 }
     }
 }
