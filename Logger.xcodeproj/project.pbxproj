@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		788329F7213139F400410419 /* LevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788329F6213139F400410419 /* LevelTests.swift */; };
+		788329F9213173E300410419 /* WebLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788329F8213173E300410419 /* WebLogger.swift */; };
 		78BA67AB21297FCD0070ED4D /* Logger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BA67A121297FCD0070ED4D /* Logger.framework */; };
 		78BA67B021297FCD0070ED4D /* LoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67AF21297FCD0070ED4D /* LoggerTests.swift */; };
 		78BA67B221297FCD0070ED4D /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = 78BA67A421297FCD0070ED4D /* Logger.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		788329F6213139F400410419 /* LevelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTests.swift; sourceTree = "<group>"; };
+		788329F8213173E300410419 /* WebLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLogger.swift; sourceTree = "<group>"; };
 		78BA67A121297FCD0070ED4D /* Logger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Logger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BA67A421297FCD0070ED4D /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		78BA67A521297FCD0070ED4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				78BA67BE212980020070ED4D /* Formatter.swift */,
 				78BA67C3212B02620070ED4D /* TTYLogger.swift */,
 				78BA67C5212C49AB0070ED4D /* FileLogger.swift */,
+				788329F8213173E300410419 /* WebLogger.swift */,
 				78BA67BD212980020070ED4D /* Logger.swift */,
 				78BA67BB212980020070ED4D /* Logging.swift */,
 				78BA67BC212980020070ED4D /* Message.swift */,
@@ -373,6 +376,7 @@
 				78BA67C6212C49AB0070ED4D /* FileLogger.swift in Sources */,
 				78BA67C4212B02620070ED4D /* TTYLogger.swift in Sources */,
 				78BA67C0212980020070ED4D /* Message.swift in Sources */,
+				788329F9213173E300410419 /* WebLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

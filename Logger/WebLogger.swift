@@ -7,3 +7,46 @@
 //
 
 import Foundation
+
+/// A remote logger for send log message to web.
+/// With WebLogger, we can debug with Web Broswer like Safari.
+public struct WebLogger: Logging {
+
+    public var formatter: LogFormatter
+
+    public var level: Level
+
+    public var name: String {
+        return "com.xspyhack.TTYLogger"
+    }
+
+    public init(level: Level = .info, formatter: LogFormatter) {
+        self.level = level
+        self.formatter = formatter
+
+        fatalError("Welcome for contribution")
+    }
+
+    public func log(message: Message) {
+        // Send to web
+    }
+
+    public func start() {
+        // Setup connection
+    }
+
+    public func teardown() {
+        // Close connection
+    }
+}
+
+extension WebLogger: Hashable {
+    public static func == (lhs: WebLogger, rhs: WebLogger) -> Bool {
+        return lhs.level == rhs.level && lhs.name == rhs.name
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(level)
+    }
+}
