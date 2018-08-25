@@ -11,7 +11,7 @@ import Foundation
 /// A logger that logs to a file.
 public struct FileLogger: Logging {
 
-    public var formatter: Formatter
+    public var formatter: LogFormatter
 
     public var level: Level
 
@@ -23,7 +23,7 @@ public struct FileLogger: Logging {
         return "com.xspyhack.fileLogger"
     }
 
-    public init?(level: Level = .info, formatter: Formatter, fileManager: LogFileManager = DefaultFileManager()) {
+    public init?(level: Level, formatter: LogFormatter, fileManager: LogFileManager = DefaultFileManager()) {
         self.level = level
         self.formatter = formatter
         self.fileManager = fileManager
@@ -114,7 +114,11 @@ public struct DefaultFileManager: LogFileManager {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd-hh-mm-ss"
-        return directory + "/\(formatter.string(from: date)).log"
+        let path = directory + "/\(formatter.string(from: date)).log"
+
+        fileManager.createFile(atPath: path, contents: nil, attributes: nil)
+
+        return path
     }
 
     public init() {
