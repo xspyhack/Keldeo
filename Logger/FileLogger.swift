@@ -20,7 +20,7 @@ public struct FileLogger: Logging {
     private let fileManager: LogFileManager
 
     public var name: String {
-        return "com.xspyhack.fileLogger"
+        return "com.xspyhack.FileLogger"
     }
 
     public init?(level: Level, formatter: LogFormatter, fileManager: LogFileManager = DefaultFileManager()) {

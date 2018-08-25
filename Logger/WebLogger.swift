@@ -17,7 +17,7 @@ public struct WebLogger: Logging {
     public var level: Level
 
     public var name: String {
-        return "com.xspyhack.TTYLogger"
+        return "com.xspyhack.WebLogger"
     }
 
     public init(level: Level = .info, formatter: LogFormatter) {
