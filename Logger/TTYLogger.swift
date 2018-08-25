@@ -11,7 +11,7 @@ import Foundation
 /// A logger for Xcode console output.
 public struct TTYLogger: Logging {
 
-    public var formatter: Formatter
+    public var formatter: LogFormatter
 
     public var level: Level
 
@@ -25,7 +25,7 @@ public struct TTYLogger: Logging {
         return "com.xspyhack.TTYLogger"
     }
 
-    public init(level: Level = .info, formatter: Formatter) {
+    public init(level: Level = .info, formatter: LogFormatter) {
         self.level = level
         self.formatter = formatter
     }

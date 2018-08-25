@@ -1,7 +1,7 @@
 import Foundation
 
 /// Log message formatter
-public protocol Formatter {
+public protocol LogFormatter {
 
     /// Format log message to plain string
     ///
