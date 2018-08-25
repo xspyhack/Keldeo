@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		788329F7213139F400410419 /* LevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788329F6213139F400410419 /* LevelTests.swift */; };
 		78BA67AB21297FCD0070ED4D /* Logger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BA67A121297FCD0070ED4D /* Logger.framework */; };
 		78BA67B021297FCD0070ED4D /* LoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67AF21297FCD0070ED4D /* LoggerTests.swift */; };
 		78BA67B221297FCD0070ED4D /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = 78BA67A421297FCD0070ED4D /* Logger.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -16,6 +17,14 @@
 		78BA67C2212980020070ED4D /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67BE212980020070ED4D /* Formatter.swift */; };
 		78BA67C4212B02620070ED4D /* TTYLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67C3212B02620070ED4D /* TTYLogger.swift */; };
 		78BA67C6212C49AB0070ED4D /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67C5212C49AB0070ED4D /* FileLogger.swift */; };
+		78BA67CE213129140070ED4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67CD213129140070ED4D /* AppDelegate.swift */; };
+		78BA67D0213129140070ED4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67CF213129140070ED4D /* ViewController.swift */; };
+		78BA67D3213129140070ED4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78BA67D1213129140070ED4D /* Main.storyboard */; };
+		78BA67D5213129170070ED4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78BA67D4213129170070ED4D /* Assets.xcassets */; };
+		78BA67D8213129170070ED4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78BA67D6213129170070ED4D /* LaunchScreen.storyboard */; };
+		78BA67E3213129170070ED4D /* AlligatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA67E2213129170070ED4D /* AlligatorTests.swift */; };
+		78BA67ED21312E7E0070ED4D /* Logger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BA67A121297FCD0070ED4D /* Logger.framework */; };
+		78BA67EE21312E7E0070ED4D /* Logger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78BA67A121297FCD0070ED4D /* Logger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +35,38 @@
 			remoteGlobalIDString = 78BA67A021297FCD0070ED4D;
 			remoteInfo = Logger;
 		};
+		78BA67DF213129170070ED4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 78BA679821297FCD0070ED4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78BA67CA213129140070ED4D;
+			remoteInfo = Alligator;
+		};
+		78BA67EB21312DA00070ED4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 78BA679821297FCD0070ED4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78BA67A021297FCD0070ED4D;
+			remoteInfo = Logger;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		78BA67EF21312E7E0070ED4D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				78BA67EE21312E7E0070ED4D /* Logger.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		788329F6213139F400410419 /* LevelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTests.swift; sourceTree = "<group>"; };
 		78BA67A121297FCD0070ED4D /* Logger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Logger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BA67A421297FCD0070ED4D /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		78BA67A521297FCD0070ED4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,6 +79,16 @@
 		78BA67BE212980020070ED4D /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		78BA67C3212B02620070ED4D /* TTYLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTYLogger.swift; sourceTree = "<group>"; };
 		78BA67C5212C49AB0070ED4D /* FileLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
+		78BA67CB213129140070ED4D /* Alligator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alligator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78BA67CD213129140070ED4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		78BA67CF213129140070ED4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		78BA67D2213129140070ED4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		78BA67D4213129170070ED4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		78BA67D7213129170070ED4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		78BA67D9213129170070ED4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78BA67DE213129170070ED4D /* AlligatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlligatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		78BA67E2213129170070ED4D /* AlligatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlligatorTests.swift; sourceTree = "<group>"; };
+		78BA67E4213129170070ED4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +107,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78BA67C8213129140070ED4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78BA67ED21312E7E0070ED4D /* Logger.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78BA67DB213129170070ED4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -67,6 +130,8 @@
 			children = (
 				78BA67A321297FCD0070ED4D /* Logger */,
 				78BA67AE21297FCD0070ED4D /* LoggerTests */,
+				78BA67CC213129140070ED4D /* Alligator */,
+				78BA67E1213129170070ED4D /* AlligatorTests */,
 				78BA67A221297FCD0070ED4D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +141,8 @@
 			children = (
 				78BA67A121297FCD0070ED4D /* Logger.framework */,
 				78BA67AA21297FCD0070ED4D /* LoggerTests.xctest */,
+				78BA67CB213129140070ED4D /* Alligator.app */,
+				78BA67DE213129170070ED4D /* AlligatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,9 +166,32 @@
 			isa = PBXGroup;
 			children = (
 				78BA67AF21297FCD0070ED4D /* LoggerTests.swift */,
+				788329F6213139F400410419 /* LevelTests.swift */,
 				78BA67B121297FCD0070ED4D /* Info.plist */,
 			);
 			path = LoggerTests;
+			sourceTree = "<group>";
+		};
+		78BA67CC213129140070ED4D /* Alligator */ = {
+			isa = PBXGroup;
+			children = (
+				78BA67CD213129140070ED4D /* AppDelegate.swift */,
+				78BA67CF213129140070ED4D /* ViewController.swift */,
+				78BA67D1213129140070ED4D /* Main.storyboard */,
+				78BA67D4213129170070ED4D /* Assets.xcassets */,
+				78BA67D6213129170070ED4D /* LaunchScreen.storyboard */,
+				78BA67D9213129170070ED4D /* Info.plist */,
+			);
+			path = Alligator;
+			sourceTree = "<group>";
+		};
+		78BA67E1213129170070ED4D /* AlligatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				78BA67E2213129170070ED4D /* AlligatorTests.swift */,
+				78BA67E4213129170070ED4D /* Info.plist */,
+			);
+			path = AlligatorTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +244,43 @@
 			productReference = 78BA67AA21297FCD0070ED4D /* LoggerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		78BA67CA213129140070ED4D /* Alligator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78BA67E5213129170070ED4D /* Build configuration list for PBXNativeTarget "Alligator" */;
+			buildPhases = (
+				78BA67C7213129140070ED4D /* Sources */,
+				78BA67C8213129140070ED4D /* Frameworks */,
+				78BA67C9213129140070ED4D /* Resources */,
+				78BA67EF21312E7E0070ED4D /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				78BA67EC21312DA00070ED4D /* PBXTargetDependency */,
+			);
+			name = Alligator;
+			productName = Alligator;
+			productReference = 78BA67CB213129140070ED4D /* Alligator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		78BA67DD213129170070ED4D /* AlligatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78BA67E8213129170070ED4D /* Build configuration list for PBXNativeTarget "AlligatorTests" */;
+			buildPhases = (
+				78BA67DA213129170070ED4D /* Sources */,
+				78BA67DB213129170070ED4D /* Frameworks */,
+				78BA67DC213129170070ED4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				78BA67E0213129170070ED4D /* PBXTargetDependency */,
+			);
+			name = AlligatorTests;
+			productName = AlligatorTests;
+			productReference = 78BA67DE213129170070ED4D /* AlligatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -171,6 +298,13 @@
 					78BA67A921297FCD0070ED4D = {
 						CreatedOnToolsVersion = 10.0;
 					};
+					78BA67CA213129140070ED4D = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					78BA67DD213129170070ED4D = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 78BA67CA213129140070ED4D;
+					};
 				};
 			};
 			buildConfigurationList = 78BA679B21297FCD0070ED4D /* Build configuration list for PBXProject "Logger" */;
@@ -179,6 +313,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 78BA679721297FCD0070ED4D;
 			productRefGroup = 78BA67A221297FCD0070ED4D /* Products */;
@@ -187,6 +322,8 @@
 			targets = (
 				78BA67A021297FCD0070ED4D /* Logger */,
 				78BA67A921297FCD0070ED4D /* LoggerTests */,
+				78BA67CA213129140070ED4D /* Alligator */,
+				78BA67DD213129170070ED4D /* AlligatorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -200,6 +337,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		78BA67A821297FCD0070ED4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78BA67C9213129140070ED4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78BA67D8213129170070ED4D /* LaunchScreen.storyboard in Resources */,
+				78BA67D5213129170070ED4D /* Assets.xcassets in Resources */,
+				78BA67D3213129140070ED4D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78BA67DC213129170070ED4D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -226,7 +380,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				788329F7213139F400410419 /* LevelTests.swift in Sources */,
 				78BA67B021297FCD0070ED4D /* LoggerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78BA67C7213129140070ED4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78BA67D0213129140070ED4D /* ViewController.swift in Sources */,
+				78BA67CE213129140070ED4D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78BA67DA213129170070ED4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78BA67E3213129170070ED4D /* AlligatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +410,36 @@
 			target = 78BA67A021297FCD0070ED4D /* Logger */;
 			targetProxy = 78BA67AC21297FCD0070ED4D /* PBXContainerItemProxy */;
 		};
+		78BA67E0213129170070ED4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 78BA67CA213129140070ED4D /* Alligator */;
+			targetProxy = 78BA67DF213129170070ED4D /* PBXContainerItemProxy */;
+		};
+		78BA67EC21312DA00070ED4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 78BA67A021297FCD0070ED4D /* Logger */;
+			targetProxy = 78BA67EB21312DA00070ED4D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		78BA67D1213129140070ED4D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78BA67D2213129140070ED4D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		78BA67D6213129170070ED4D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78BA67D7213129170070ED4D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		78BA67B321297FCD0070ED4D /* Debug */ = {
@@ -450,6 +651,82 @@
 			};
 			name = Release;
 		};
+		78BA67E6213129170070ED4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Alligator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xspyhack.Alligator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		78BA67E7213129170070ED4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Alligator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xspyhack.Alligator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		78BA67E9213129170070ED4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AlligatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xspyhack.AlligatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alligator.app/Alligator";
+			};
+			name = Debug;
+		};
+		78BA67EA213129170070ED4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AlligatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xspyhack.AlligatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alligator.app/Alligator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -476,6 +753,24 @@
 			buildConfigurations = (
 				78BA67B921297FCD0070ED4D /* Debug */,
 				78BA67BA21297FCD0070ED4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78BA67E5213129170070ED4D /* Build configuration list for PBXNativeTarget "Alligator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78BA67E6213129170070ED4D /* Debug */,
+				78BA67E7213129170070ED4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78BA67E8213129170070ED4D /* Build configuration list for PBXNativeTarget "AlligatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78BA67E9213129170070ED4D /* Debug */,
+				78BA67EA213129170070ED4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
