@@ -6,7 +6,7 @@ public class Logger {
     /// Singlethon
     public static let shared = Logger()
 
-    //private var loggerQueue = DispatchQueue(label: "com.xspyhack.logger.logger", attributes: .concurrent)
+    private var loggerQueue = DispatchQueue(label: "com.xspyhack.logger.logger", attributes: .concurrent)
 
     private var queue = DispatchQueue(label: "com.xspyhack.logger.queue")
 
@@ -52,19 +52,25 @@ public extension Logger {
     /// - Parameters:
     ///   - logger: the logger
     public func add(_ logger: AnyLogger) {
-        loggers.update(with: logger)
+        loggerQueue.async {
+            self.loggers.update(with: logger)
+        }
     }
 
     /// Remove specific logger
     ///
     /// - Parameter logger: the logger to be remove
     public func remove(_ logger: AnyLogger) {
-        loggers.remove(logger)
+        loggerQueue.async {
+            self.loggers.remove(logger)
+        }
     }
 
     /// Remove all added logger
     public func removeAll() {
-        loggers.removeAll()
+        loggerQueue.async {
+            self.loggers.removeAll()
+        }
     }
 }
 
