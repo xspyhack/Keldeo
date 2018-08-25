@@ -34,7 +34,7 @@ public struct FileLogger: Logging {
     }
 
     public func log(message: Message) {
-        let formattedMessage = formatter.format(message: message)
+        let formattedMessage = formatter.format(message: message) + "\n" // Fuck it
 
         guard let data = formattedMessage.data(using: .utf8) else {
             return
