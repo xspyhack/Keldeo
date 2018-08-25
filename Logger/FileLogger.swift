@@ -59,10 +59,6 @@ public struct FileLogger: Logging {
 
 extension FileLogger {
 
-    private func roll() {
-
-    }
-
     private func setup() {
         fileHandle.seekToEndOfFile()
 
@@ -82,7 +78,7 @@ extension FileLogger: Hashable {
     }
 }
 
-/// File manager to roll file or do something with the log file
+/// File manager to roll file or do something with the log file.
 public protocol LogFileManager {
 
     /// Log files directory
@@ -92,6 +88,8 @@ public protocol LogFileManager {
     func filePath() -> String
 }
 
+/// Default File Manager for File Logger
+/// It will create a new file on each launch session.
 public struct DefaultFileManager: LogFileManager {
 
     /// Log files directory
