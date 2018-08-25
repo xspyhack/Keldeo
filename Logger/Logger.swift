@@ -16,7 +16,7 @@ public class Logger {
     public init() {
         // Observer UIApplication will terminate notification to flush logs
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(Logger.willTerminate(_:)),
+                                               selector: #selector(Logger.applicationWillTerminate(_:)),
                                                name: UIApplication.willTerminateNotification,
                                                object: nil)
     }
@@ -37,7 +37,7 @@ public class Logger {
     }
 
     @objc
-    private func willTerminate(_ notification: Notification) {
+    private func applicationWillTerminate(_ notification: Notification) {
         flush()
     }
 }
