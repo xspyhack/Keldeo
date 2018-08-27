@@ -15,7 +15,7 @@ struct AlligatorFormatter: LogFormatter {
 
     init() {
         dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyy-MM-dd hh:mm:ss.SSSS"
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSSS"
     }
 
     func format(message: Message) -> String {
