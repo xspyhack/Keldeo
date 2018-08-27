@@ -1,10 +1,18 @@
+//
+//  Keldeo.swift
+//  Keldeo
+//
+//  Created by bl4ckra1sond3tre on 2018/8/25.
+//  Copyright © 2018 blessingsoftware. All rights reserved.
+//
+
 import Foundation
 
 /// Loggers management, exposes all logging mechanisms
-public class Logger {
+public class Keldeo {
 
     /// Singlethon
-    public static let shared = Logger()
+    public static let shared = Keldeo()
 
     private var loggerQueue = DispatchQueue(label: "com.xspyhack.logger.logger", attributes: .concurrent)
 
@@ -16,7 +24,7 @@ public class Logger {
     public init() {
         // Observer UIApplication will terminate notification to flush logs
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(Logger.applicationWillTerminate(_:)),
+                                               selector: #selector(Keldeo.applicationWillTerminate(_:)),
                                                name: UIApplication.willTerminateNotification,
                                                object: nil)
     }
@@ -44,7 +52,7 @@ public class Logger {
 
 // MARK: - Logger manager
 
-public extension Logger {
+public extension Keldeo {
 
     /// Add logger.
     /// You must use `AnyLogger(_:)` to wrap your logger`
@@ -76,7 +84,7 @@ public extension Logger {
 
 // MARK: - Log message
 
-public extension Logger {
+public extension Keldeo {
 
     /// The primitive logging method
     ///
@@ -113,7 +121,7 @@ public extension Logger {
     }
 }
 
-/// The convenience API for prepare log message
+/// The convenience API for preparing log message
 public struct Log {
 
     public static func e(_ message: @autoclosure () -> String, level: Level = .error, context: Int = 0, file: String = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = false) {
@@ -136,6 +144,6 @@ public struct Log {
 
         let message = Message(message: message(), level: level, flag: flag, context: context, file: file, function: function, line: line, timestamp: Date())
 
-        Logger.shared.log(message: message, asynchronous: asynchronous)
+        Keldeo.shared.log(message: message, asynchronous: asynchronous)
     }
 }

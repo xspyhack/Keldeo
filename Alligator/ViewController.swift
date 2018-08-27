@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Logger
+import Keldeo
 
 class ViewController: UIViewController {
 

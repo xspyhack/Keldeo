@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Logger.xcodeproj">
+      location = "self:Keldeo.xcodeproj">
    </FileRef>
 </Workspace>

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Logger
+import Keldeo
 
 struct AlligatorFormatter: LogFormatter {
 
@@ -59,11 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let formatter = AlligatorFormatter()
 
         let consoleLogger = ConsoleLogger(level: .debug, formatter: formatter)
-        Logger.shared.add(AnyLogger(consoleLogger))
+        Keldeo.shared.add(AnyLogger(consoleLogger))
 
         let fileManager = DefaultFileManager()
         if let fileLogger = FileLogger(level: .info, formatter: formatter, fileManager: fileManager) {
-            Logger.shared.add(AnyLogger(fileLogger))
+            Keldeo.shared.add(AnyLogger(fileLogger))
 
             print("Log directory: \(fileManager.directory)")
         }
