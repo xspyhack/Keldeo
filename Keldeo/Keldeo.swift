@@ -60,7 +60,7 @@ public extension Keldeo {
     /// - Parameters:
     ///   - logger: the logger
     public func add(_ logger: AnyLogger) {
-        loggerQueue.async {
+        loggerQueue.async(flags: .barrier) {
             self.loggers.update(with: logger)
         }
     }
@@ -69,14 +69,14 @@ public extension Keldeo {
     ///
     /// - Parameter logger: the logger to be remove
     public func remove(_ logger: AnyLogger) {
-        loggerQueue.async {
+        loggerQueue.async(flags: .barrier) {
             self.loggers.remove(logger)
         }
     }
 
     /// Remove all added logger
     public func removeAll() {
-        loggerQueue.async {
+        loggerQueue.async(flags: .barrier) {
             self.loggers.removeAll()
         }
     }
