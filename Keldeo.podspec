@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/xspyhack"
 
   s.platform     = :ios
-  s.ios.deployment_target    = "10.0"
+  s.ios.deployment_target    = "12.0"
 
   s.source       = { :git => "https://github.com/xspyhack/Keldeo.git", :tag => "#{s.version}" }
 
