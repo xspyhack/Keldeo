@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         print("This is print() message")
 
         NSLog("This is NSLog() message")
+
+        DispatchQueue.concurrentPerform(iterations: 100) { index in
+            Log.d("\(index)")
+        }
     }
 
 }
