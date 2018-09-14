@@ -14,11 +14,11 @@ Pod::Spec.new do |s|
   s.author             = { "xspyhack" => "xspyhack@gmail.com" }
   s.social_media_url   = "http://twitter.com/xspyhack"
 
-  s.platform     = :ios
-  s.ios.deployment_target    = "12.0"
+  s.platform                = :ios
+  s.ios.deployment_target   = "12.0"
+  s.swift_version           = "4.2"
 
-  s.source       = { :git => "https://github.com/xspyhack/Keldeo.git", :tag => "#{s.version}" }
-
+  s.source        = { :git => "https://github.com/xspyhack/Keldeo.git", :tag => "#{s.version}" }
   s.source_files  = "Keldeo/*.swift"
-
+  
 end
