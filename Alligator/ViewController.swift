@@ -31,6 +31,5 @@ class ViewController: UIViewController {
             Log.d("\(index)")
         }
     }
-
 }
 

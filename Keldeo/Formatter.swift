@@ -9,7 +9,7 @@
 import Foundation
 
 /// Log message formatter
-public protocol LogFormatter {
+public protocol Formatter {
 
     /// Format log message to plain string
     ///

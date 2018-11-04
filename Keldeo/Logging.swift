@@ -34,7 +34,7 @@ public struct Flag: OptionSet {
 public protocol Logging: Hashable {
 
     /// Log formatter for format log message before output
-    var formatter: LogFormatter { get }
+    var formatter: Formatter { get }
 
     /// Logger name
     var name: String { get }
@@ -80,7 +80,7 @@ protocol AnyLoggerBox {
 
     func unbox<T: Logging>() -> T?
 
-    var formatter: LogFormatter { get }
+    var formatter: Formatter { get }
 
     var level: Level { get }
 
@@ -106,7 +106,7 @@ struct ConcreteLoggerBox<Base: Logging>: AnyLoggerBox {
         self.base = base
     }
 
-    var formatter: LogFormatter {
+    var formatter: Formatter {
         return base.formatter
     }
 
@@ -157,7 +157,7 @@ public struct AnyLogger {
 
 extension AnyLogger: Logging {
 
-    public var formatter: LogFormatter {
+    public var formatter: Formatter {
         return box.formatter
     }
 

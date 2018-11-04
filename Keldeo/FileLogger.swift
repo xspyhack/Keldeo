@@ -11,19 +11,19 @@ import Foundation
 /// A logger that logs to a file.
 public struct FileLogger: Logging {
 
-    public var formatter: LogFormatter
+    public var formatter: Formatter
 
     public var level: Level
 
     private let fileHandle: FileHandle
 
-    private let fileManager: LogFileManager
+    private let fileManager: FileManager
 
     public var name: String {
         return "com.xspyhack.FileLogger"
     }
 
-    public init?(level: Level, formatter: LogFormatter, fileManager: LogFileManager = DefaultFileManager()) {
+    public init?(level: Level, formatter: Formatter, fileManager: FileManager = DefaultFileManager()) {
         self.level = level
         self.formatter = formatter
         self.fileManager = fileManager
@@ -79,7 +79,7 @@ extension FileLogger: Hashable {
 }
 
 /// File manager to roll file or do something with the log file.
-public protocol LogFileManager {
+public protocol FileManager {
 
     /// Log files directory
     var directory: String { get }
@@ -90,7 +90,7 @@ public protocol LogFileManager {
 
 /// Default File Manager for File Logger
 /// It will create a new file on each launch session.
-public struct DefaultFileManager: LogFileManager {
+public struct DefaultFileManager: FileManager {
 
     /// Log files directory
     public var directory: String
@@ -102,7 +102,7 @@ public struct DefaultFileManager: LogFileManager {
     /// Max log file size in bytes. Defaults no limit.
     public var maxFileSize: UInt = 0
 
-    private let fileManager = FileManager()
+    private let fileManager = Foundation.FileManager()
 
     private let queue = DispatchQueue(label: "com.xspyhack.fileManager.queue")
 

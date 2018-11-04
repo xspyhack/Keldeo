@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7816660D218EDC65007F0AAF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7816660C218EDC65007F0AAF /* Logger.swift */; };
 		78832A0E213399F700410419 /* Keldeo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78832A04213399F700410419 /* Keldeo.framework */; };
 		78832A13213399F700410419 /* KeldeoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78832A12213399F700410419 /* KeldeoTests.swift */; };
 		78832A15213399F700410419 /* Keldeo.h in Headers */ = {isa = PBXBuildFile; fileRef = 78832A07213399F700410419 /* Keldeo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -15,7 +16,6 @@
 		78832A2721339A3400410419 /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78832A2021339A3400410419 /* ConsoleLogger.swift */; };
 		78832A2821339A3400410419 /* WebLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78832A2121339A3400410419 /* WebLogger.swift */; };
 		78832A2921339A3400410419 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78832A2221339A3400410419 /* Formatter.swift */; };
-		78832A2A21339A3400410419 /* Keldeo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78832A2321339A3400410419 /* Keldeo.swift */; };
 		78832A2B21339A3400410419 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78832A2421339A3400410419 /* Message.swift */; };
 		78832A2D21339A9D00410419 /* LevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78832A2C21339A9D00410419 /* LevelTests.swift */; };
 		78832A3521339AE000410419 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78832A3421339AE000410419 /* AppDelegate.swift */; };
@@ -67,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7816660C218EDC65007F0AAF /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		78832A04213399F700410419 /* Keldeo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Keldeo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78832A07213399F700410419 /* Keldeo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keldeo.h; sourceTree = "<group>"; };
 		78832A08213399F700410419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,7 +79,6 @@
 		78832A2021339A3400410419 /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
 		78832A2121339A3400410419 /* WebLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLogger.swift; sourceTree = "<group>"; };
 		78832A2221339A3400410419 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		78832A2321339A3400410419 /* Keldeo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keldeo.swift; sourceTree = "<group>"; };
 		78832A2421339A3400410419 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		78832A2C21339A9D00410419 /* LevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTests.swift; sourceTree = "<group>"; };
 		78832A3221339ADF00410419 /* Alligator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alligator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,10 +152,10 @@
 		78832A06213399F700410419 /* Keldeo */ = {
 			isa = PBXGroup;
 			children = (
+				7816660C218EDC65007F0AAF /* Logger.swift */,
 				78832A2021339A3400410419 /* ConsoleLogger.swift */,
 				78832A1E21339A3400410419 /* FileLogger.swift */,
 				78832A2221339A3400410419 /* Formatter.swift */,
-				78832A2321339A3400410419 /* Keldeo.swift */,
 				78832A1F21339A3400410419 /* Logging.swift */,
 				78832A2421339A3400410419 /* Message.swift */,
 				78832A2121339A3400410419 /* WebLogger.swift */,
@@ -371,12 +371,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				78832A2821339A3400410419 /* WebLogger.swift in Sources */,
-				78832A2A21339A3400410419 /* Keldeo.swift in Sources */,
 				78832A2721339A3400410419 /* ConsoleLogger.swift in Sources */,
 				78832A2921339A3400410419 /* Formatter.swift in Sources */,
 				78832A2521339A3400410419 /* FileLogger.swift in Sources */,
 				78832A2621339A3400410419 /* Logging.swift in Sources */,
 				78832A2B21339A3400410419 /* Message.swift in Sources */,
+				7816660D218EDC65007F0AAF /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

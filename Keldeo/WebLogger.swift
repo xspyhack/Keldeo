@@ -12,7 +12,7 @@ import Foundation
 /// With WebLogger, we can debug with Web Broswer like Safari.
 public struct WebLogger: Logging {
 
-    public var formatter: LogFormatter
+    public var formatter: Formatter
 
     public var level: Level
 
@@ -20,7 +20,7 @@ public struct WebLogger: Logging {
         return "com.xspyhack.WebLogger"
     }
 
-    public init(level: Level = .info, formatter: LogFormatter) {
+    public init(level: Level = .info, formatter: Formatter) {
         self.level = level
         self.formatter = formatter
 
