@@ -10,13 +10,10 @@ import Foundation
 
 /// A logger that logs to a file.
 public struct FileLogger: Logging {
-
     public var formatter: Formatter
-
     public var level: Level
 
     private let fileHandle: FileHandle
-
     private let fileManager: FileManager
 
     public var name: String {
@@ -58,7 +55,6 @@ public struct FileLogger: Logging {
 }
 
 extension FileLogger {
-
     private func setup() {
         fileHandle.seekToEndOfFile()
 

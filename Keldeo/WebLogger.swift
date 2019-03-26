@@ -11,9 +11,7 @@ import Foundation
 /// A remote logger for send log message to web.
 /// With WebLogger, we can debug with Web Broswer like Safari.
 public struct WebLogger: Logging {
-
     public var formatter: Formatter
-
     public var level: Level
 
     public var name: String {

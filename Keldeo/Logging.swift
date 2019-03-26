@@ -17,7 +17,6 @@ public enum Level: Int {
 }
 
 public struct Flag: OptionSet {
-
     public let rawValue: Int
 
     public static let error = Flag(rawValue: 1 << 0) // 1
@@ -58,7 +57,6 @@ public protocol Logging: Hashable {
 }
 
 public extension Logging {
-
     var name: String {
         return "Unified"
     }
@@ -77,7 +75,6 @@ internal func _abstract(file: StaticString = #file, line: UInt = #line) -> Never
 }
 
 protocol AnyLoggerBox {
-
     func unbox<T: Logging>() -> T?
 
     var formatter: Formatter { get }
@@ -99,7 +96,6 @@ protocol AnyLoggerBox {
 }
 
 struct ConcreteLoggerBox<Base: Logging>: AnyLoggerBox {
-
     var base: Base
 
     init(_ base: Base) {
@@ -147,7 +143,6 @@ struct ConcreteLoggerBox<Base: Logging>: AnyLoggerBox {
 }
 
 public struct AnyLogger {
-
     private var box: AnyLoggerBox
 
     public init<T: Logging>(_ box: T) {
@@ -156,7 +151,6 @@ public struct AnyLogger {
 }
 
 extension AnyLogger: Logging {
-
     public var formatter: Formatter {
         return box.formatter
     }
@@ -183,7 +177,6 @@ extension AnyLogger: Logging {
 }
 
 extension AnyLogger: Hashable {
-
     public static func == (lhs: AnyLogger, rhs: AnyLogger) -> Bool {
         if let result = lhs.box.isEqual(to: rhs.box) {
             return result
@@ -192,7 +185,7 @@ extension AnyLogger: Hashable {
         return false
     }
 
-    public var hashValue: Int {
-        return box.hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(box.hashValue)
     }
 }

@@ -59,7 +59,7 @@ public extension Logger {
     ///
     /// - Parameters:
     ///   - logger: the logger
-    public func add(_ logger: AnyLogger) {
+    func add(_ logger: AnyLogger) {
         loggerQueue.async(flags: .barrier) {
             self.loggers.update(with: logger)
         }
@@ -68,14 +68,14 @@ public extension Logger {
     /// Remove specific logger
     ///
     /// - Parameter logger: the logger to be remove
-    public func remove(_ logger: AnyLogger) {
+    func remove(_ logger: AnyLogger) {
         loggerQueue.async(flags: .barrier) {
             self.loggers.remove(logger)
         }
     }
 
     /// Remove all added loggers
-    public func removeAll() {
+    func removeAll() {
         loggerQueue.async(flags: .barrier) {
             self.loggers.removeAll()
         }
@@ -91,7 +91,7 @@ public extension Logger {
     /// - Parameters:
     ///   - message: the log message
     ///   - asynchronous: true if the logging is done async, false if you want to force sync
-    public func log(message: Message, asynchronous: Bool) {
+    func log(message: Message, asynchronous: Bool) {
 
         let work = DispatchWorkItem {
             self.loggers.forEach { logger in
@@ -110,7 +110,7 @@ public extension Logger {
     }
 
     /// Flush all pending logs synchronously
-    public func flush() {
+    func flush() {
         let work = DispatchWorkItem {
             self.loggers.forEach { logger in
                 logger.flush()
@@ -126,22 +126,22 @@ public struct Log {
 
     /// Log error level message
     public static func e(_ message: @autoclosure () -> String, level: Level = .error, context: Int = 0, file: String = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = false) {
-        log(message, level: level, flag: .error, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
+        log(message(), level: level, flag: .error, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
     }
 
     /// Log warning level message
     public static func w(_ message: @autoclosure () -> String, level: Level = .warning, context: Int = 0, file: String = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = true) {
-        log(message, level: level, flag: .warning, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
+        log(message(), level: level, flag: .warning, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
     }
 
     /// Log info level message
     public static func i(_ message: @autoclosure () -> String, level: Level = .info, context: Int = 0, file: String = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = true) {
-        log(message, level: level, flag: .info, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
+        log(message(), level: level, flag: .info, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
     }
 
     /// Log debug level message
     public static func d(_ message: @autoclosure () -> String, level: Level = .debug, context: Int = 0, file: String = #file, function: StaticString = #function, line: UInt = #line, asynchronous: Bool = true) {
-        log(message, level: level, flag: .debug, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
+        log(message(), level: level, flag: .debug, context: context, file: file, function: function, line: line, asynchronous: asynchronous)
     }
 
     /// Log message

@@ -10,9 +10,7 @@ import Foundation
 
 /// A logger for Xcode console output.
 public struct ConsoleLogger: Logging {
-
     public var formatter: Formatter
-
     public var level: Level
 
     public func log(message: Message) {
