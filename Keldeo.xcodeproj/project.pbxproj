@@ -26,6 +26,7 @@
 		78832A4A21339AE300410419 /* AlligatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78832A4921339AE300410419 /* AlligatorTests.swift */; };
 		78832A5221339B0600410419 /* Keldeo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78832A04213399F700410419 /* Keldeo.framework */; };
 		78832A5321339B0600410419 /* Keldeo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78832A04213399F700410419 /* Keldeo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA2B923E2279688E001A8362 /* OSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B923D2279688E001A8362 /* OSLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		78832A4521339AE300410419 /* AlligatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlligatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78832A4921339AE300410419 /* AlligatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlligatorTests.swift; sourceTree = "<group>"; };
 		78832A4B21339AE300410419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA2B923D2279688E001A8362 /* OSLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				7816660C218EDC65007F0AAF /* Logger.swift */,
 				78832A2021339A3400410419 /* ConsoleLogger.swift */,
 				78832A1E21339A3400410419 /* FileLogger.swift */,
+				FA2B923D2279688E001A8362 /* OSLogger.swift */,
 				78832A2221339A3400410419 /* Formatter.swift */,
 				78832A1F21339A3400410419 /* Logging.swift */,
 				78832A2421339A3400410419 /* Message.swift */,
@@ -373,6 +376,7 @@
 				78832A2821339A3400410419 /* WebLogger.swift in Sources */,
 				78832A2721339A3400410419 /* ConsoleLogger.swift in Sources */,
 				78832A2921339A3400410419 /* Formatter.swift in Sources */,
+				FA2B923E2279688E001A8362 /* OSLogger.swift in Sources */,
 				78832A2521339A3400410419 /* FileLogger.swift in Sources */,
 				78832A2621339A3400410419 /* Logging.swift in Sources */,
 				78832A2B21339A3400410419 /* Message.swift in Sources */,
