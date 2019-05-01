@@ -72,7 +72,7 @@ public struct WebLogger: Logging {
 }
 ```
 
-Logger needs conform to protocol `Hashable`.
+The Logger needs conform to protocol `Hashable`.
 
 ```swift
 extension WebLogger: Hashable {
@@ -89,7 +89,7 @@ extension WebLogger: Hashable {
 
 ### Custom Message Format
 
-```
+```swift
 struct OSLogFormatter: Keldeo.Formatter {
     func format(message: Message) -> String {
         var string = ""
@@ -129,7 +129,7 @@ enum Level {
 }
 ```
 
-```
+```swift
 let consoleLogger = ConsoleLogger(level: .debug, formatter: formatter) // can capture all level log message
 let osLogger = OSLogger(level: .info, formatter: OSLogFormatter(), log: .default) // can capture `error`, `warning` and `info` level log message
 let fileLogger = FileLogger(level: .error, formatter: formatter, fileManager: fileManager) // only capture `error` level log message
