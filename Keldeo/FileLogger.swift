@@ -20,7 +20,9 @@ public struct FileLogger: Logging {
         return "com.xspyhack.FileLogger"
     }
 
-    public init?(level: Level, formatter: Formatter, fileManager: FileManager = DefaultFileManager()) {
+    public init?(level: Level,
+                 formatter: Formatter,
+                 fileManager: FileManager = DefaultFileManager()) {
         self.level = level
         self.formatter = formatter
         self.fileManager = fileManager
@@ -167,7 +169,6 @@ public struct DefaultFileManager: FileManager {
                 }
 
                 for fileURL in sortedFiles {
-
                     do {
                         try self.fileManager.removeItem(at: fileURL)
                     } catch { }
@@ -185,7 +186,6 @@ public struct DefaultFileManager: FileManager {
     }
 
     private func travelFiles() -> (urlsToDelete: [URL], diskFileSize: UInt, files: [URL: URLResourceValues]) {
-
         let directoryURL = URL(fileURLWithPath: directory)
 
         let resourceKeys: Set<URLResourceKey> = [.isDirectoryKey, .contentAccessDateKey, .totalFileAllocatedSizeKey]
