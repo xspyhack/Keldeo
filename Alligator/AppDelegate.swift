@@ -10,7 +10,6 @@ import UIKit
 import Keldeo
 
 struct AlligatorFormatter: Keldeo.Formatter {
-
     let dateFormatter: DateFormatter
 
     init() {
@@ -48,6 +47,35 @@ struct AlligatorFormatter: Keldeo.Formatter {
     }
 }
 
+struct OSLogFormatter: Keldeo.Formatter {
+
+    func format(message: Message) -> String {
+        var string = ""
+
+        let level: String
+        switch message.level {
+        case .error:
+            level = "❌"
+        case .warning:
+            level = "⚠️"
+        case .info:
+            level = "🐊"
+        case .debug:
+            level = "💊"
+        case .off:
+            level = ""
+        }
+        string += "\(level) "
+
+        let file = (message.file as NSString).lastPathComponent
+        string += "[\(file):\(message.line)] \(message.function) "
+
+        string += "| \(message.message)"
+
+        return string
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -58,8 +86,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let formatter = AlligatorFormatter()
 
-        let consoleLogger = ConsoleLogger(level: .debug, formatter: formatter)
-        Logger.shared.add(AnyLogger(consoleLogger))
+        let useOSLog = Bool.random()
+        if useOSLog {
+            let osLogger = OSLogger(formatter: OSLogFormatter(), log: .default)
+            Logger.shared.add(AnyLogger(osLogger))
+        } else {
+            let consoleLogger = ConsoleLogger(level: .debug, formatter: formatter)
+            Logger.shared.add(AnyLogger(consoleLogger))
+        }
 
         let fileManager = DefaultFileManager()
         if let fileLogger = FileLogger(level: .info, formatter: formatter, fileManager: fileManager) {

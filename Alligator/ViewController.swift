@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         NSLog("This is NSLog() message")
 
         DispatchQueue.concurrentPerform(iterations: 100) { index in
-            Log.d("\(index)")
+            Log.i("\(index)")
         }
     }
 }
