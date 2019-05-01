@@ -44,6 +44,13 @@ public class Logger {
         }
     }
 
+    /// Teardown all loggers
+    public func teardown() {
+        loggers.forEach {
+            $0.teardown()
+        }
+    }
+
     @objc
     private func applicationWillTerminate(_ notification: Notification) {
         flush()
@@ -92,7 +99,6 @@ public extension Logger {
     ///   - message: the log message
     ///   - asynchronous: true if the logging is done async, false if you want to force sync
     func log(message: Message, asynchronous: Bool) {
-
         let work = DispatchWorkItem {
             self.loggers.forEach { logger in
                 guard message.flag.rawValue & logger.level.rawValue != 0 else {
