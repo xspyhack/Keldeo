@@ -87,7 +87,7 @@ extension WebLogger: Hashable {
 }
 ```
 
-### Custom Message Format
+### Formatting Log Messages
 
 ```swift
 struct OSLogFormatter: Keldeo.Formatter {
