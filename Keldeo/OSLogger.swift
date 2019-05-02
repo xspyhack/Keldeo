@@ -13,12 +13,12 @@ import os
 public struct OSLogger: Logging {
     public var formatter: Formatter
     public var level: Level
-    
     private let log: OSLog
-    private let logType: OSLogType
 
     public func log(message: Message) {
-        os_log("%@", log: log, type: logType,
+        // you may explicitly declare the string public using the keyword public.
+        // For example, %{public}s.
+        os_log("%@", log: log, type: OSLogger.logType(forLevel: message.level),
                formatter.format(message: message))
     }
 
@@ -40,7 +40,6 @@ public struct OSLogger: Logging {
         self.level = level
         self.formatter = formatter
         self.log = log
-        self.logType = OSLogger.logType(forLevel: level)
     }
 }
 
