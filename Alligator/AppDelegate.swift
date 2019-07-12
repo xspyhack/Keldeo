@@ -88,15 +88,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let useOSLog = Bool.random()
         if useOSLog {
-            let osLogger = OSLogger(formatter: OSLogFormatter(), log: .default)
+            let osLogger = Loggers.OS(formatter: OSLogFormatter(), log: .default)
             Logger.shared.add(AnyLogger(osLogger))
         } else {
-            let consoleLogger = ConsoleLogger(level: .debug, formatter: formatter)
+            let consoleLogger = Loggers.Console(level: .debug, formatter: formatter)
             Logger.shared.add(AnyLogger(consoleLogger))
         }
 
-        let fileManager = DefaultFileManager()
-        if let fileLogger = FileLogger(level: .info, formatter: formatter, fileManager: fileManager) {
+        let fileManager = FileManagers.Default()
+        if let fileLogger = Loggers.File(level: .info, formatter: formatter, fileManager: fileManager) {
             Logger.shared.add(AnyLogger(fileLogger))
 
             print("Log directory: \(fileManager.directory)")
