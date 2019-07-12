@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Keldeo"
-  s.version      = "0.0.5"
+  s.version      = "0.1.0"
   s.summary      = "A lightweight logging library written in Swift."
 
   s.description  = <<-DESC
