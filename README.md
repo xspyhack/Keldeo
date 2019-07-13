@@ -3,7 +3,11 @@ A lightweight logging library written in Swift.
 
 ## Requirements
 
-Swift 4.2, iOS 12.0
+Swift 5.0, iOS 11.0
+
+## Installation
+
+CocoaPods, Carthage, Swift Package Manager
 
 ## Examples
 
