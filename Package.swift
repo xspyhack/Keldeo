@@ -7,7 +7,7 @@ let package = Package(
     name: "Keldeo",
     platforms: [
        .macOS(.v10_14),
-       .iOS(.v11),
+       .iOS(.v12),
     ],
     products: [
         .library(

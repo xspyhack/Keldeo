@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Keldeo"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "A lightweight logging library written in Swift."
 
   s.description  = <<-DESC
@@ -19,6 +19,6 @@ Pod::Spec.new do |s|
   s.swift_version           = "5.0"
 
   s.source        = { :git => "https://github.com/xspyhack/Keldeo.git", :tag => "#{s.version}" }
-  s.source_files  = "Keldeo/*.swift"
+  s.source_files  = "Sources/Keldeo/*.swift"
   
 end

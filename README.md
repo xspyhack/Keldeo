@@ -3,7 +3,7 @@ A lightweight logging library written in Swift.
 
 ## Requirements
 
-Swift 5.0, iOS 11.0
+Swift 5.0, iOS 12.0
 
 ## Installation
 
