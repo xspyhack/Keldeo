@@ -176,7 +176,8 @@
 				78832A07213399F700410419 /* Keldeo.h */,
 				78832A08213399F700410419 /* Info.plist */,
 			);
-			path = Keldeo;
+			name = Keldeo;
+			path = Sources/Keldeo;
 			sourceTree = "<group>";
 		};
 		78832A11213399F700410419 /* KeldeoTests */ = {
@@ -186,7 +187,8 @@
 				78832A12213399F700410419 /* KeldeoTests.swift */,
 				78832A14213399F700410419 /* Info.plist */,
 			);
-			path = KeldeoTests;
+			name = KeldeoTests;
+			path = Tests/KeldeoTests;
 			sourceTree = "<group>";
 		};
 		78832A3321339AE000410419 /* Alligator */ = {
@@ -594,7 +596,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Keldeo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Keldeo/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -621,7 +623,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Keldeo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Keldeo/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -642,7 +644,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = KeldeoTests/Info.plist;
+				INFOPLIST_FILE = Tests/KeldeoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -660,7 +662,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = KeldeoTests/Info.plist;
+				INFOPLIST_FILE = Tests/KeldeoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

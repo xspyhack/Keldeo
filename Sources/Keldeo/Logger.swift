@@ -8,6 +8,10 @@
 
 import Foundation
 
+#if os(macOS)
+import AppKit
+#endif
+
 /// Loggers management, exposes all logging mechanisms
 public class Logger {
 
@@ -22,11 +26,18 @@ public class Logger {
     public private(set) var loggers: Set<AnyLogger> = []
 
     public init() {
+        #if !os(macOS) && !os(watchOS)
         // Observer UIApplication will terminate notification to flush logs
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(Logger.applicationWillTerminate(_:)),
                                                name: UIApplication.willTerminateNotification,
                                                object: nil)
+        #elseif os(macOS)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(Logger.applicationWillTerminate(_:)),
+                                               name: NSApplication.willResignActiveNotification,
+                                               object: nil)
+        #endif
     }
 
     deinit {
