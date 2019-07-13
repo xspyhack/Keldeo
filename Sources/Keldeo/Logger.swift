@@ -10,6 +10,8 @@ import Foundation
 
 #if os(macOS)
 import AppKit
+#else
+import UIKit
 #endif
 
 /// Loggers management, exposes all logging mechanisms
