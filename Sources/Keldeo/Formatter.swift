@@ -9,11 +9,11 @@
 import Foundation
 
 /// Log message formatter
-public protocol Formatter {
-
+public struct Formatting {
     /// Format log message to plain string
-    ///
-    /// - Parameter message: log message
-    /// - Returns: plain string
-    func format(message: Message) -> String
+    public let format: (Message) -> String
+
+    public init(format: @escaping (Message) -> String) {
+        self.format = format
+    }
 }

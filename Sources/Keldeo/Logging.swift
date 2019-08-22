@@ -29,163 +29,49 @@ public struct Flag: OptionSet {
     }
 }
 
-/// Logging protocol, describes a logger behavior.
-public protocol Logging: Hashable {
-
-    /// Log formatter for format log message before output
-    var formatter: Formatter { get }
+/// Logging, describes a logger behavior.
+public struct Logging {
 
     /// Logger name
-    var name: String { get }
+    public let name: String
 
     /// Logger level for filter output
-    var level: Level { get }
+    public let level: Level
 
     /// Log method, use this method to output log message.
-    ///
-    /// - Parameter message: log message
-    func log(message: Message)
+    public let log: (Message) -> Void
 
     /// Implemented to flush all pending IO
-    func flush()
+    public let flush: (() -> Void)?
 
     /// Timing for setup tasks
-    func start()
+    public let start: (() -> Void)?
 
     /// Timing for teardown tasks
-    func teardown()
-}
+    public let teardown: (() -> Void)?
 
-public extension Logging {
-    var name: String {
-        return "Unified"
-    }
-
-    func flush() {}
-
-    func start() {}
-
-    func teardown() {}
-}
-
-// MARK: - AnyLogger
-
-internal func _abstract(file: StaticString = #file, line: UInt = #line) -> Never {
-    fatalError("Abstract method must be overridden", file: file, line: line)
-}
-
-protocol AnyLoggerBox {
-    func unbox<T: Logging>() -> T?
-
-    var formatter: Formatter { get }
-
-    var level: Level { get }
-
-    func log(message: Message)
-
-    func start()
-
-    func teardown()
-
-    func flush()
-
-    // hashable
-    var hashValue: Int { get }
-
-    func isEqual(to: AnyLoggerBox) -> Bool?
-}
-
-struct ConcreteLoggerBox<Base: Logging>: AnyLoggerBox {
-    var base: Base
-
-    init(_ base: Base) {
-        self.base = base
-    }
-
-    var formatter: Formatter {
-        return base.formatter
-    }
-
-    var level: Level {
-        return base.level
-    }
-
-    func unbox<T : Logging>() -> T? {
-        return (self as AnyLoggerBox as? ConcreteLoggerBox<T>)?.base
-    }
-
-    func log(message: Message) {
-        base.log(message: message)
-    }
-
-    func flush() {
-        base.flush()
-    }
-
-    func start() {
-        base.start()
-    }
-
-    func teardown() {
-        base.teardown()
-    }
-
-    var hashValue: Int {
-        return base.hashValue
-    }
-
-    func isEqual(to other: AnyLoggerBox) -> Bool? {
-        guard let other: Base = other.unbox() else {
-            return nil
-        }
-        return other == base
+    public init(name: String,
+                level: Level,
+                log: @escaping (Message) -> Void,
+                flush: (() -> Void)? = nil,
+                start: (() -> Void)? = nil,
+                teardown: (() -> Void)? = nil) {
+        self.name = name
+        self.level = level
+        self.log = log
+        self.flush = flush
+        self.start = start
+        self.teardown = teardown
     }
 }
 
-public struct AnyLogger {
-    private var box: AnyLoggerBox
-
-    public init<T: Logging>(_ box: T) {
-        self.box = ConcreteLoggerBox(box)
-    }
-}
-
-extension AnyLogger: Logging {
-    public var formatter: Formatter {
-        return box.formatter
-    }
-
-    public var level: Level {
-        return box.level
-    }
-
-    public func log(message: Message) {
-        box.log(message: message)
-    }
-
-    public func flush() {
-        box.flush()
-    }
-
-    public func start() {
-        box.start()
-    }
-
-    public func teardown() {
-        box.teardown()
-    }
-}
-
-extension AnyLogger: Hashable {
-    public static func == (lhs: AnyLogger, rhs: AnyLogger) -> Bool {
-        if let result = lhs.box.isEqual(to: rhs.box) {
-            return result
-        }
-
-        return false
-    }
-
+extension Logging: Hashable {
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(box.hashValue)
+        hasher.combine(name)
+        hasher.combine(level)
+    }
+
+    public static func == (lhs: Logging, rhs: Logging) -> Bool {
+        return lhs.level == rhs.level && lhs.name == rhs.name
     }
 }

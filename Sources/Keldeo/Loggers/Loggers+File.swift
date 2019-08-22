@@ -8,34 +8,17 @@
 
 import Foundation
 
-extension Loggers {
-
+public extension Loggers {
     /// A logger that logs to a file.
-    public struct File: Logging {
-        public var formatter: Formatter
-        public var level: Level
-
-        private let fileHandle: FileHandle
-        private let fileManager: FileManager
-
-        public var name: String {
-            return "com.xspyhack.FileLogger"
+    static func file(level: Level,
+                     formatter: Formatting,
+                     fileManager: FileManager = FileManagers.Default()) -> Logging? {
+        guard let fileHandle = FileHandle(forWritingAtPath: fileManager.filePath()) else {
+            return nil
         }
 
-        public init?(level: Level,
-                     formatter: Formatter,
-                     fileManager: FileManager = FileManagers.Default()) {
-            self.level = level
-            self.formatter = formatter
-            self.fileManager = fileManager
-            guard let fileHandle = FileHandle(forWritingAtPath: fileManager.filePath()) else {
-                return nil
-            }
-            self.fileHandle = fileHandle
-        }
-
-        public func log(message: Message) {
-            let formattedMessage = formatter.format(message: message) + "\n" // Fuck it
+        func log(message: Message) {
+            let formattedMessage = formatter.format(message) + "\n" // Fuck it
 
             guard let data = formattedMessage.data(using: .utf8) else {
                 return
@@ -44,38 +27,28 @@ extension Loggers {
             fileHandle.write(data)
         }
 
-        public func flush() {
+        func start() {
+            fileHandle.seekToEndOfFile()
+
+            // Here we are monitoring the log file. In case if it would be deleted ormoved
+            // somewhere we want to roll it and use a new one.
+        }
+
+        func flush() {
             fileHandle.synchronizeFile()
         }
 
-        public func start() {
-            setup()
-        }
-
-        public func teardown() {
+        func teardown() {
             fileHandle.synchronizeFile()
             fileHandle.closeFile()
         }
-    }
-}
 
-extension Loggers.File {
-    private func setup() {
-        fileHandle.seekToEndOfFile()
-
-        // Here we are monitoring the log file. In case if it would be deleted ormoved
-        // somewhere we want to roll it and use a new one.
-    }
-}
-
-extension Loggers.File: Hashable {
-    public static func == (lhs: Loggers.File, rhs: Loggers.File) -> Bool {
-        return lhs.level == rhs.level && lhs.name == rhs.name
-    }
-
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(level)
+        return Logging(name: "com.xspyhack.FileLogger",
+                       level: level,
+                       log: log,
+                       flush: flush,
+                       start: start,
+                       teardown: teardown)
     }
 }
 

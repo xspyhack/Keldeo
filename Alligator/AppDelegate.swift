@@ -9,7 +9,7 @@
 import UIKit
 import Keldeo
 
-struct AlligatorFormatter: Keldeo.Formatter {
+struct AlligatorFormatter {
     let dateFormatter: DateFormatter
 
     init() {
@@ -47,7 +47,7 @@ struct AlligatorFormatter: Keldeo.Formatter {
     }
 }
 
-struct OSLogFormatter: Keldeo.Formatter {
+struct OSLogFormatter {
 
     func format(message: Message) -> String {
         var string = ""
@@ -83,21 +83,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        let formatter = AlligatorFormatter()
-
+        let formatter = Formatting(format: AlligatorFormatter().format)
         let useOSLog = Bool.random()
         if useOSLog {
-            let osLogger = Loggers.OS(formatter: OSLogFormatter(), log: .default)
-            Logger.shared.add(AnyLogger(osLogger))
+            let osLogger = Loggers.os(formatter: Formatting(format: OSLogFormatter().format), log: .default)
+            Logger.shared.add(osLogger)
         } else {
-            let consoleLogger = Loggers.Console(level: .debug, formatter: formatter)
-            Logger.shared.add(AnyLogger(consoleLogger))
+            let consoleLogger = Loggers.console(level: .debug, formatter: formatter)
+            Logger.shared.add(consoleLogger)
         }
 
         let fileManager = FileManagers.Default()
-        if let fileLogger = Loggers.File(level: .info, formatter: formatter, fileManager: fileManager) {
-            Logger.shared.add(AnyLogger(fileLogger))
+        if let fileLogger = Loggers.file(level: .info, formatter: formatter, fileManager: fileManager) {
+            Logger.shared.add(fileLogger)
 
             print("Log directory: \(fileManager.directory)")
         }

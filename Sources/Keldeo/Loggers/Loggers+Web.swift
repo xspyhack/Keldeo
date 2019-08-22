@@ -8,46 +8,27 @@
 
 import Foundation
 
-extension Loggers {
+public extension Loggers {
 
     /// A remote logger for send log message to web.
     /// With WebLogger, we can debug with Web Broswer like Safari.
-    public struct Web: Logging {
-        public var formatter: Formatter
-        public var level: Level
-
-        public var name: String {
-            return "com.xspyhack.WebLogger"
-        }
-
-        public init(level: Level = .info, formatter: Formatter) {
-            self.level = level
-            self.formatter = formatter
-
-            fatalError("Welcome for contribution")
-        }
-
-        public func log(message: Message) {
+    static func web(level: Level = .info, formatter: Formatting) -> Logging {
+        func log(message: Message) {
             // Send to web
         }
 
-        public func start() {
+        func start() {
             // Setup connection
         }
 
-        public func teardown() {
+        func teardown() {
             // Close connection
         }
-    }
-}
 
-extension Loggers.Web: Hashable {
-    public static func == (lhs: Loggers.Web, rhs: Loggers.Web) -> Bool {
-        return lhs.level == rhs.level && lhs.name == rhs.name
-    }
-
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(level)
+        return Logging(name: "com.xspyhack.WebLogger",
+                       level: level,
+                       log: log,
+                       start: start,
+                       teardown: teardown)
     }
 }

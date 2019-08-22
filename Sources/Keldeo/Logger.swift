@@ -25,7 +25,7 @@ public class Logger {
     private var queue = DispatchQueue(label: "com.xspyhack.logger.queue")
 
     /// All loggers set
-    public private(set) var loggers: Set<AnyLogger> = []
+    public private(set) var loggers: Set<Logging> = []
 
     public init() {
         #if !os(macOS) && !os(watchOS)
@@ -44,7 +44,7 @@ public class Logger {
 
     deinit {
         loggers.forEach {
-            $0.teardown()
+            $0.teardown?()
         }
 
         loggers = []
@@ -53,14 +53,14 @@ public class Logger {
     /// Start new session
     public func start() {
         loggers.forEach {
-            $0.start()
+            $0.start?()
         }
     }
 
     /// Teardown all loggers
     public func teardown() {
         loggers.forEach {
-            $0.teardown()
+            $0.teardown?()
         }
     }
 
@@ -79,7 +79,7 @@ public extension Logger {
     ///
     /// - Parameters:
     ///   - logger: the logger
-    func add(_ logger: AnyLogger) {
+    func add(_ logger: Logging) {
         loggerQueue.async(flags: .barrier) {
             self.loggers.update(with: logger)
         }
@@ -88,7 +88,7 @@ public extension Logger {
     /// Remove specific logger
     ///
     /// - Parameter logger: the logger to be remove
-    func remove(_ logger: AnyLogger) {
+    func remove(_ logger: Logging) {
         loggerQueue.async(flags: .barrier) {
             self.loggers.remove(logger)
         }
@@ -117,7 +117,7 @@ public extension Logger {
                 guard message.flag.rawValue & logger.level.rawValue != 0 else {
                     return
                 }
-                logger.log(message: message)
+                logger.log(message)
             }
         }
 
@@ -132,7 +132,7 @@ public extension Logger {
     func flush() {
         let work = DispatchWorkItem {
             self.loggers.forEach { logger in
-                logger.flush()
+                logger.flush?()
             }
         }
 
