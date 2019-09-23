@@ -1,0 +1,20 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    name: Build
+    runs-on: macOS-latest
+    strategy:
+      matrix:
+        destination: ['platform=iOS Simulator,OS=13.0,name=iPhone X']
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Build and Test
+      run: |
+        xcodebuild clean build -project Keldeo.xcodeproj -scheme Keldeo -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+      env: 
+       destination: ${{ matrix.destination }}
