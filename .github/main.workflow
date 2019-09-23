@@ -5,5 +5,5 @@ workflow "Lint" {
 
 action "swiftlint" {
   uses = "norio-nomura/action-swiftlint@master"
-  secrets = ["GITHUB_TOKEN"]
+  secrets = ["ACCESS_TOKEN"]
 }
