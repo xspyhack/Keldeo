@@ -1,6 +1,6 @@
 # Keldeo
 
-<p align="center">
+<p>
 <a href="https://github.com/xspyhack/keldeo/actions"><img src="https://github.com/xspyhack/keldeo/workflows/Build/badge.svg" /></a>
 <a href="https://github.com/Carthage/Carthage/"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
 <a href="http://cocoadocs.org/"><img src="https://img.shields.io/cocoapods/v/Keldeo.svg?style=flat"></a>
